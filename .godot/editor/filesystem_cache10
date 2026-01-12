@@ -1,0 +1,11 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1768239600
+icon.svg::CompressedTexture2D::1847222579574081957::1767812191::1767812197::1::::<><><>0<>0<>f4534f82d18f58f8ebb1f8f5c56d9f41<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Levels/::1767983593
+goal.gd::GDScript::7675722690872412452::1767981893::0::1::::<>CSGBox3D<><>0<>0<><>::
+level2.tscn::PackedScene::8117953865186106083::1767983450::0::1::::<><><>0<>0<><>::uid://dhmgbcfqwotyy::::res://Levels/goal.gd<>uid://s16hi7o6yxtf::::res://Player/player.tscn
+level3.tscn::PackedScene::4282463620045193713::1767983593::0::1::::<><><>0<>0<><>::uid://dhmgbcfqwotyy::::res://Levels/goal.gd<>uid://s16hi7o6yxtf::::res://Player/player.tscn
+level.tscn::PackedScene::8304161354246673572::1767982319::0::1::::<><><>0<>0<><>::uid://dhmgbcfqwotyy::::res://Levels/goal.gd<>uid://s16hi7o6yxtf::::res://Player/player.tscn
+::res://Player/::1767983810
+player.gd::GDScript::7930107457376801516::1767983810::0::1::::Player<>RigidBody3D<><>0<>0<><>::
+player.tscn::PackedScene::1318968204722267095::1767982177::0::1::::<><><>0<>0<><>::uid://dk8nygf1valsm::::res://Player/player.gd

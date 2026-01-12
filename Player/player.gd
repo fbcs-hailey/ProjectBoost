@@ -1,0 +1,37 @@
+extends RigidBody3D
+class_name Player
+
+@export_range(750,2500) var thrust:=1000.0
+@export var torque_thrust:=100.0
+
+
+func _ready() -> void:
+	pass # Replace with function body.
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("boost"):
+		apply_central_force(basis.y*delta*thrust)
+	
+	if Input.is_action_pressed("rotate_left"):
+		apply_torque(Vector3(0,0,delta*torque_thrust))
+	
+	if Input.is_action_pressed("rotate_right"):
+		apply_torque(Vector3(0,0,-delta*torque_thrust))
+
+func _on_body_entered(body: Node) -> void:
+	if "Goal" in body.get_groups():
+		print("you win")
+		if body.file_path:
+			complete_level.call_deferred(body.file_path)
+		else:
+			print('no next lvl found!')
+	if "Not Goal" in body.get_groups():
+		print("you lose")
+		crash_sequence()
+
+func crash_sequence():
+	print("KABOOM")
+	get_tree().reload_current_scene.call_deferred()
+
+func complete_level(next_lvl_file):
+	get_tree().change_scene_to_file(next_lvl_file)

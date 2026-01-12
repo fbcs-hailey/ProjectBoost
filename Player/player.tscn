@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://s16hi7o6yxtf"]
+
+[ext_resource type="Script" uid="uid://dk8nygf1valsm" path="res://Player/player.gd" id="1_l8h54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8h54"]
+albedo_color = Color(1, 0.97800004, 0.33999997, 1)
+rim_tint = 0.26
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_btcbx"]
+material = SubResource("StandardMaterial3D_l8h54")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l8h54"]
+height = 2.0673828
+radius = 0.5488281
+
+[node name="Player" type="RigidBody3D"]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 1.0
+angular_damp = 3.0
+script = ExtResource("1_l8h54")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_btcbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_l8h54")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
