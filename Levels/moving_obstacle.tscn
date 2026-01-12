@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b15wrt45n3qlq"]
+
+[ext_resource type="Script" uid="uid://dvu7jlidlo54f" path="res://ProjectBoost/Levels/moving_obstacle.gd" id="1_mmc1b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plieb"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uwcia"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w2ao4"]
+points = PackedVector3Array(1.5, 1.5, 1.5, 1.5, 1.5, -1.5, -1.5, 1.5, 1.5, 1.5, -1.5, 1.5, 1.5, -1.5, -1.5, -1.5, 1.5, -1.5, -1.5, -1.5, 1.5, -1.5, -1.5, -1.5)
+
+[node name="moving obstacle" type="AnimatableBody3D" groups=["Not Goal"]]
+script = ExtResource("1_mmc1b")
+destination = Vector3(0, 3, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5908551, 0)
+material_override = SubResource("StandardMaterial3D_plieb")
+mesh = SubResource("BoxMesh_uwcia")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5908551, 0)
+shape = SubResource("ConvexPolygonShape3D_w2ao4")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2apsx77n852l"]
+[gd_scene load_steps=12 format=3 uid="uid://c8xq06wrjkdem"]
 
-[ext_resource type="Script" uid="uid://dhmgbcfqwotyy" path="res://ProjectBoost/Levels/goal.gd" id="1_2385j"]
-[ext_resource type="PackedScene" uid="uid://s16hi7o6yxtf" path="res://ProjectBoost/Player/player.tscn" id="2_c5oim"]
+[ext_resource type="Script" uid="uid://dhmgbcfqwotyy" path="res://ProjectBoost/Levels/goal.gd" id="1_plieb"]
+[ext_resource type="PackedScene" uid="uid://s16hi7o6yxtf" path="res://ProjectBoost/Player/player.tscn" id="2_uwcia"]
+[ext_resource type="PackedScene" uid="uid://b15wrt45n3qlq" path="res://ProjectBoost/Levels/moving_obstacle.tscn" id="3_uwcia"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
 sky_top_color = Color(0.4510635, 0.6769083, 0.8576691, 1)
@@ -20,12 +21,6 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfk6w"]
 albedo_color = Color(0.9233686, 0.5809435, 0.336081, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2385j"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh6o7"]
-albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vr4rd"]
 albedo_color = Color(1, 0, 0, 1)
@@ -54,18 +49,6 @@ use_collision = true
 size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_yfk6w")
 
-[node name="Obstacle" type="CSGBox3D" parent="." groups=["Not Goal"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.6516819, 0)
-use_collision = true
-size = Vector3(1.2, 3.243, 3)
-material = SubResource("StandardMaterial3D_2385j")
-
-[node name="Obstacle3" type="CSGBox3D" parent="." groups=["Not Goal"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5126355, 0)
-use_collision = true
-size = Vector3(1.2, 3.244, 3)
-material = SubResource("StandardMaterial3D_eh6o7")
-
 [node name="Obstacle4" type="CSGSphere3D" parent="." groups=["Not Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 7.5, 0)
 radius = 0.32283574
@@ -87,11 +70,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.13, 0)
 use_collision = true
 size = Vector3(2, 0.25, 2)
 material = SubResource("StandardMaterial3D_s41d2")
-script = ExtResource("1_2385j")
+script = ExtResource("1_plieb")
 file_path = "uid://dqkula3mwu7e3"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.95105654, 0.309017, 0, -0.309017, 0.95105654, 0, 5.305, 7.275)
 
-[node name="Player" parent="." instance=ExtResource("2_c5oim")]
+[node name="Player" parent="." instance=ExtResource("2_uwcia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1.2728143, 0)
+
+[node name="moving obstacle" parent="." instance=ExtResource("3_uwcia")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnwnrqkv8vedv"]
 
-[ext_resource type="Script" uid="uid://dhmgbcfqwotyy" path="res://Levels/goal.gd" id="1_ty1rc"]
-[ext_resource type="PackedScene" uid="uid://s16hi7o6yxtf" path="res://Player/player.tscn" id="2_m135w"]
+[ext_resource type="Script" uid="uid://dhmgbcfqwotyy" path="res://ProjectBoost/Levels/goal.gd" id="1_ty1rc"]
+[ext_resource type="PackedScene" uid="uid://s16hi7o6yxtf" path="res://ProjectBoost/Player/player.tscn" id="2_m135w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
 sky_top_color = Color(0.4510635, 0.6769083, 0.8576691, 1)
