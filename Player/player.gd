@@ -3,13 +3,17 @@ class_name Player
 
 @export_range(750,2500) var thrust:=1000.0
 @export var torque_thrust:=100.0
+
 var transitioning :=false
+
 @onready var sfx_death: AudioStreamPlayer = $SFXDeath
 @onready var sfx_win: AudioStreamPlayer = $SFXWin
 @onready var sfx_boost: AudioStreamPlayer3D = $SFXBoost
 @onready var main_booster: GPUParticles3D = $MainBooster
 @onready var right_booster: GPUParticles3D = $RightBooster
 @onready var left_booster: GPUParticles3D = $LeftBooster
+@onready var explosion_particles: GPUParticles3D = $ExplosionParticles
+@onready var success_particles: GPUParticles3D = $SuccessParticles
 
 
 
@@ -54,9 +58,12 @@ func _on_body_entered(body: Node) -> void:
 func crash_sequence():
 	transitioning=true
 	sfx_death.play()
+	explosion_particles.emitting=true
 	sfx_boost.stop()
 	main_booster.emitting=false
 	right_booster.emitting=false
+	left_booster.emitting=false
+	
 	await get_tree().create_timer(1).timeout
 	print("KABOOM")
 	get_tree().reload_current_scene.call_deferred()
@@ -64,8 +71,10 @@ func crash_sequence():
 func complete_level(next_lvl_file):
 	transitioning=true
 	sfx_win.play()
+	success_particles.emitting=true
 	sfx_boost.stop()
 	main_booster.emitting=false
 	right_booster.emitting=false
+	left_booster.emitting=false
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file(next_lvl_file)

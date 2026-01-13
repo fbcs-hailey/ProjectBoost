@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://s16hi7o6yxtf"]
+[gd_scene load_steps=11 format=3 uid="uid://s16hi7o6yxtf"]
 
 [ext_resource type="Script" uid="uid://dk8nygf1valsm" path="res://ProjectBoost/Player/player.gd" id="1_l8h54"]
 [ext_resource type="AudioStream" uid="uid://dpkautm5v2wpi" path="res://ProjectBoost/assets/SFX - Death Explosion.ogg" id="2_pg0j5"]
 [ext_resource type="AudioStream" uid="uid://bsgvjh6cwygnq" path="res://ProjectBoost/assets/SFX - Success.ogg" id="3_rn14q"]
 [ext_resource type="AudioStream" uid="uid://dvvmqmvdhtow4" path="res://ProjectBoost/assets/SFX - Main engine thrust.ogg" id="4_ca6tx"]
-[ext_resource type="PackedScene" uid="uid://cukahdywak6fd" path="res://booster_particles.tscn" id="5_rn14q"]
+[ext_resource type="PackedScene" uid="uid://cukahdywak6fd" path="res://ProjectBoost/Particals/booster_particles.tscn" id="5_rn14q"]
+[ext_resource type="PackedScene" uid="uid://c4374ff1fqotq" path="res://ProjectBoost/Particals/explosion_particles.tscn" id="6_ca6tx"]
+[ext_resource type="PackedScene" uid="uid://dujx42pii7g87" path="res://ProjectBoost/Particals/success_particles.tscn" id="7_vh432"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8h54"]
 albedo_color = Color(1, 0.97800004, 0.33999997, 1)
@@ -53,5 +55,9 @@ emitting = false
 [node name="LeftBooster" parent="." instance=ExtResource("5_rn14q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, -1, 0)
 emitting = false
+
+[node name="ExplosionParticles" parent="." instance=ExtResource("6_ca6tx")]
+
+[node name="SuccessParticles" parent="." instance=ExtResource("7_vh432")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

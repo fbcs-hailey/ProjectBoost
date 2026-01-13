@@ -68,11 +68,13 @@ material = SubResource("StandardMaterial3D_eh6o7")
 
 [node name="Obstacle4" type="CSGSphere3D" parent="." groups=["Not Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 7.5, 0)
+use_collision = true
 radius = 0.32283574
 material = SubResource("StandardMaterial3D_vr4rd")
 
 [node name="Obstacle5" type="CSGSphere3D" parent="." groups=["Not Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 7.5, 0)
+use_collision = true
 radius = 0.32283574
 material = SubResource("StandardMaterial3D_eex2w")
 
