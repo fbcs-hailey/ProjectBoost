@@ -88,7 +88,7 @@ use_collision = true
 size = Vector3(2, 0.25, 2)
 material = SubResource("StandardMaterial3D_s41d2")
 script = ExtResource("1_2385j")
-file_path = "uid://dqkula3mwu7e3"
+file_path = "uid://c8xq06wrjkdem"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.95105654, 0.309017, 0, -0.309017, 0.95105654, 0, 5.305, 7.275)
