@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://s16hi7o6yxtf"]
+[gd_scene load_steps=12 format=3 uid="uid://s16hi7o6yxtf"]
 
 [ext_resource type="Script" uid="uid://dk8nygf1valsm" path="res://ProjectBoost/Player/player.gd" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://deywekbaojyfa" path="res://ProjectBoost/Player/ship.tscn" id="2_i54r6"]
 [ext_resource type="AudioStream" uid="uid://dpkautm5v2wpi" path="res://ProjectBoost/assets/SFX - Death Explosion.ogg" id="2_pg0j5"]
 [ext_resource type="AudioStream" uid="uid://bsgvjh6cwygnq" path="res://ProjectBoost/assets/SFX - Success.ogg" id="3_rn14q"]
 [ext_resource type="AudioStream" uid="uid://dvvmqmvdhtow4" path="res://ProjectBoost/assets/SFX - Main engine thrust.ogg" id="4_ca6tx"]
@@ -30,7 +31,11 @@ angular_damp = 3.0
 script = ExtResource("1_l8h54")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CylinderMesh_btcbx")
+
+[node name="Body" parent="." instance=ExtResource("2_i54r6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21594147, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_l8h54")

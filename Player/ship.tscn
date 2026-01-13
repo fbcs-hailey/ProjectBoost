@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://deywekbaojyfa"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jcnf0"]
+top_radius = 0.19
+bottom_radius = 0.2
+height = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vkqjs"]
+top_radius = 0.0
+bottom_radius = 0.19
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jrimm"]
+top_radius = 0.1
+bottom_radius = 0.15
+height = 0.75
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aqfea"]
+top_radius = 0.1
+bottom_radius = 0.15
+height = 0.75
+
+[node name="Body" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_jcnf0")
+skeleton = NodePath("Cockpit")
+
+[node name="Cockpit" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99094146, 0)
+mesh = SubResource("CylinderMesh_vkqjs")
+skeleton = NodePath("../..")
+
+[node name="Body2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99196976, -0.126476, 0, 0.126476, 0.99196976, 0, 0, 0, 1, 0.26601326, -0.34240985, 0)
+mesh = SubResource("CylinderMesh_jrimm")
+skeleton = NodePath("")
+
+[node name="Body3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99189454, 0.12706463, 0, -0.12706463, 0.99189454, 0, 0, 0, 1, -0.266, -0.342, 0)
+mesh = SubResource("CylinderMesh_aqfea")
+skeleton = NodePath("")
