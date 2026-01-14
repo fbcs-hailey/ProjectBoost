@@ -1,26 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8xq06wrjkdem"]
+[gd_scene load_steps=10 format=3 uid="uid://c8xq06wrjkdem"]
 
+[ext_resource type="PackedScene" uid="uid://pnsnhuk51nx4" path="res://ProjectBoost/UI/ui.tscn" id="1_fs0im"]
 [ext_resource type="Script" uid="uid://dhmgbcfqwotyy" path="res://ProjectBoost/Levels/goal.gd" id="1_plieb"]
 [ext_resource type="PackedScene" uid="uid://s16hi7o6yxtf" path="res://ProjectBoost/Player/player.tscn" id="2_uwcia"]
 [ext_resource type="PackedScene" uid="uid://b15wrt45n3qlq" path="res://ProjectBoost/Levels/moving_obstacle.tscn" id="3_uwcia"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
-sky_top_color = Color(0.4510635, 0.6769083, 0.8576691, 1)
-sky_horizon_color = Color(1.2953324, 1.4082549, 1.4986353, 1)
-ground_bottom_color = Color(0.4510635, 0.6769083, 0.8576691, 1)
-ground_horizon_color = Color(1.2953324, 1.4082549, 1.4986353, 1)
-
-[sub_resource type="Sky" id="Sky_s41d2"]
-sky_material = SubResource("ProceduralSkyMaterial_54b6e")
-
-[sub_resource type="Environment" id="Environment_gtnvv"]
-background_mode = 2
-sky = SubResource("Sky_s41d2")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfk6w"]
-albedo_color = Color(0.9233686, 0.5809435, 0.336081, 1)
+[ext_resource type="PackedScene" uid="uid://x1c0ybha0280" path="res://ProjectBoost/Levels/floor.tscn" id="4_w2ao4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vr4rd"]
 albedo_color = Color(1, 0, 0, 1)
@@ -36,18 +20,7 @@ albedo_color = Color(0.17999998, 0.9, 0.312, 1)
 
 [node name="Level" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.96501654, -0.24292567, 0.09864187, 0, 0.37622422, 0.92652863, -0.26218906, 0.89411545, -0.3630626, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_gtnvv")
-
-[node name="Floor" type="CSGBox3D" parent="." groups=["Not Goal"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(30, 8, 5)
-material = SubResource("StandardMaterial3D_yfk6w")
+[node name="UI" parent="." instance=ExtResource("1_fs0im")]
 
 [node name="Obstacle4" type="CSGSphere3D" parent="." groups=["Not Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 7.5, 0)
@@ -80,3 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 0.95105654, 0.309017, 0, -0.309017, 0.951056
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1.2728143, 0)
 
 [node name="moving obstacle" parent="." instance=ExtResource("3_uwcia")]
+
+[node name="Floor" parent="." instance=ExtResource("4_w2ao4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.8207111, 0)
